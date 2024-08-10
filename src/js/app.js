@@ -1,6 +1,10 @@
-// TODO: write your code here
-import sum from './basic';
+import GameSavingLoader from './classes/GameSavingLoader';
 
-console.log('worked');
+const gameSaving = { data: undefined, error: undefined };
 
-console.log(sum([1, 2]));
+GameSavingLoader.load().then((saving) => {
+  // saving объект класса GameSaving
+  gameSaving.data = saving;
+}, (error) => {
+  gameSaving.error = error;
+});
